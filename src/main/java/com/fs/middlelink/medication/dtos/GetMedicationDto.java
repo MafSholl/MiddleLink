@@ -1,18 +1,16 @@
-package com.fs.middlelink.medication.models;
+package com.fs.middlelink.medication.dtos;
 
 import lombok.*;
 
-import java.awt.*;
-
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Getter
-@Setter
-public class CreateMedicationDto {
+public class GetMedicationDto {
+
     private Long medicationId;
     private String medicationName;
     private Double weight;
     private byte[] medicationPicture;
-    private Image image;
 }
