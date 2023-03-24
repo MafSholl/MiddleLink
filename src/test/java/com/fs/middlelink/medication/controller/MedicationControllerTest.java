@@ -53,7 +53,6 @@ class MedicationControllerTest {
         assertAll("action",
                 ()-> verify(medicationService, times(1)).createMedication(any(CreateMedicationDto.class)),
                 ()-> assertThat(actualBody).isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(expectedBody))
-
         );
     }
 }

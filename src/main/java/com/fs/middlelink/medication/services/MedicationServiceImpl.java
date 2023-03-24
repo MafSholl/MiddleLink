@@ -1,7 +1,7 @@
 package com.fs.middlelink.medication.services;
 
 import com.fs.middlelink.medication.dtos.GetMedicationDto;
-import com.fs.middlelink.medication.exception.MedicationException;
+import com.fs.middlelink.medication.exception.exceptions.MedicationException;
 import com.fs.middlelink.medication.models.CreateMedicationDto;
 import com.fs.middlelink.medication.models.Medication;
 import com.fs.middlelink.medication.repository.MedicationRepository;

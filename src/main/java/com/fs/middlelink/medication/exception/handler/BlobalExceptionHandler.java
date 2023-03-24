@@ -1,6 +1,6 @@
 package com.fs.middlelink.medication.exception.handler;
 
-import com.fs.middlelink.medication.exception.MedicationException;
+import com.fs.middlelink.medication.exception.exceptions.MedicationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

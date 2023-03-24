@@ -1,4 +1,4 @@
-package com.fs.middlelink.medication.exception;
+package com.fs.middlelink.medication.exception.exceptions;
 
 public class MedicationException extends RuntimeException {
     public MedicationException(String message) {
