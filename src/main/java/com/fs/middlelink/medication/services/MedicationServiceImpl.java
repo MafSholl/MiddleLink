@@ -3,6 +3,7 @@ package com.fs.middlelink.medication.services;
 import com.fs.middlelink.medication.dtos.GetMedicationDto;
 import com.fs.middlelink.medication.exception.exceptions.MedicationException;
 import com.fs.middlelink.medication.models.CreateMedicationDto;
+import com.fs.middlelink.medication.models.DeleteMedicationDto;
 import com.fs.middlelink.medication.models.Medication;
 import com.fs.middlelink.medication.repository.MedicationRepository;
 import org.modelmapper.ModelMapper;
@@ -37,5 +38,21 @@ public class MedicationServiceImpl implements MedicationService{
         Optional<Medication> foundMedication = medicationRepository.findByMedicationName(medicationName);
         if (foundMedication.isEmpty()) throw new MedicationException("Medication does not exist!");
         return modelMapper.map(foundMedication.get(), GetMedicationDto.class);
+    }
+
+    @Override
+    public DeleteMedicationDto deleteMedication(String medicationName) {
+        DeleteMedicationDto deleteMedicationDto = null;
+        try {
+            GetMedicationDto medication = getMedication(medicationName);
+            medicationRepository.deleteMedicationByNsme(medicationName);
+            String message = "Medication deleted successfully.";
+            deleteMedicationDto = new DeleteMedicationDto(message);
+        }
+        catch (MedicationException e) {
+            if (e.getMessage().equals("Medication does not exist!"))
+                return new DeleteMedicationDto(e.getMessage());
+        }
+        return deleteMedicationDto;
     }
 }

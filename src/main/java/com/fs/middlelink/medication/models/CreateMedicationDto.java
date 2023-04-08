@@ -10,7 +10,7 @@ import java.awt.*;
 @Getter
 @Setter
 public class CreateMedicationDto {
-    private Long medicationId;
+    private String medicationId;
     private String medicationName;
     private Double weight;
     private byte[] medicationPicture;

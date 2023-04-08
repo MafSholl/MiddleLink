@@ -35,7 +35,7 @@ class MedicationControllerTest {
                 .medicationPicture(imageBtye)
                 .build();
         CreateMedicationDto expectedBody = CreateMedicationDto.builder()
-                .medicationId(1L)
+                .medicationId("med-id-01")
                 .medicationName("Novagin")
                 .weight(106.41)
                 .medicationPicture(imageBtye)

@@ -6,6 +6,7 @@ import com.fs.middlelink.medication.repository.MedicationRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@ActiveProfiles("dev")
 class MedicationServiceImplTest {
     @Autowired
     private MedicationService medicationService;
@@ -33,8 +35,12 @@ class MedicationServiceImplTest {
                 .build();
 
         CreateMedicationDto response = medicationService.createMedication(request);
+        assertNotNull(response);
+        assertEquals("Novagin", response.getMedicationName());
+
         Optional<Medication> repoMed = medicationRepository.findByMedicationName("Novagin");
         assertAll("properties",
+                () -> assertTrue(repoMed.isPresent()),
                 () -> assertEquals(response.getMedicationName(), repoMed.get().getMedicationName()),
                 () -> assertEquals(response.getWeight(), repoMed.get().getWeight()),
                 () -> assertEquals(response.getMedicationPicture(), repoMed.get().getMedicationPicture()),
