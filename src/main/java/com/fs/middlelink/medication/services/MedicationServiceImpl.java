@@ -2,8 +2,8 @@ package com.fs.middlelink.medication.services;
 
 import com.fs.middlelink.medication.dtos.GetMedicationDto;
 import com.fs.middlelink.medication.exception.exceptions.MedicationException;
-import com.fs.middlelink.medication.models.CreateMedicationDto;
-import com.fs.middlelink.medication.models.DeleteMedicationDto;
+import com.fs.middlelink.medication.dtos.CreateMedicationDto;
+import com.fs.middlelink.medication.dtos.DeleteMedicationDto;
 import com.fs.middlelink.medication.models.Medication;
 import com.fs.middlelink.medication.repository.MedicationRepository;
 import org.modelmapper.ModelMapper;

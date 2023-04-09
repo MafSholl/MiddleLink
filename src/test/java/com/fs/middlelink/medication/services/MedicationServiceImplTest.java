@@ -1,10 +1,9 @@
 package com.fs.middlelink.medication.services;
 
-import com.fs.middlelink.medication.models.CreateMedicationDto;
-import com.fs.middlelink.medication.models.DeleteMedicationDto;
+import com.fs.middlelink.medication.dtos.CreateMedicationDto;
+import com.fs.middlelink.medication.dtos.DeleteMedicationDto;
 import com.fs.middlelink.medication.models.Medication;
 import com.fs.middlelink.medication.repository.MedicationRepository;
-import com.fs.middlelink.utils.RedisProperties;
 import com.fs.middlelink.utils.RedisTestConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.fs.middlelink.medication.models;
+package com.fs.middlelink.medication.dtos;
 
 import lombok.*;
 

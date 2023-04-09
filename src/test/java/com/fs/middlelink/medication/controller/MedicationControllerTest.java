@@ -1,7 +1,7 @@
 package com.fs.middlelink.medication.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fs.middlelink.medication.models.CreateMedicationDto;
+import com.fs.middlelink.medication.dtos.CreateMedicationDto;
 import com.fs.middlelink.medication.services.MedicationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ class MedicationControllerTest {
 
     @Test
     void whenCreatMedicationEndpointCalled_Returns200AndBody_Test() throws Exception {
-        byte[] imageBtye = {4,7,3,5,78,1,9,0};
+        Byte[] imageBtye = {4,7,3,5,78,1,9,0};
         CreateMedicationDto createMedicationRequest = CreateMedicationDto.builder()
                 .medicationName("Novagin")
                 .weight(106.41)

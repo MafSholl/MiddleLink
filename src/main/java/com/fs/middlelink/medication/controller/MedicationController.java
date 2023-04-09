@@ -1,6 +1,6 @@
 package com.fs.middlelink.medication.controller;
 
-import com.fs.middlelink.medication.models.CreateMedicationDto;
+import com.fs.middlelink.medication.dtos.CreateMedicationDto;
 import com.fs.middlelink.medication.services.MedicationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +23,10 @@ public class MedicationController {
     @GetMapping("/get-medication")
     public ResponseEntity<?> getMedication(@RequestParam @Valid String medicationName) {
         return new ResponseEntity<>(medicationService.getMedication(medicationName), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete-medication/{name}")
+    public ResponseEntity<?> deleteMedication(@PathVariable String name) {
+        return new ResponseEntity<>(medicationService.deleteMedication(name), HttpStatus.OK);
     }
 }

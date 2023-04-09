@@ -1,4 +1,4 @@
-package com.fs.middlelink.medication.models;
+package com.fs.middlelink.medication.dtos;
 
 import lombok.*;
 
@@ -13,6 +13,6 @@ public class CreateMedicationDto {
     private String medicationId;
     private String medicationName;
     private Double weight;
-    private byte[] medicationPicture;
+    private Byte[] medicationPicture;
     private Image image;
 }
