@@ -9,4 +9,5 @@ import lombok.*;
 @Setter
 public class DeleteMedicationDto {
     private String message;
+    private boolean delete;
 }

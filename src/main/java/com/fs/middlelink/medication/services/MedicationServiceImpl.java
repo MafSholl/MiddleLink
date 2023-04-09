@@ -45,13 +45,13 @@ public class MedicationServiceImpl implements MedicationService{
         DeleteMedicationDto deleteMedicationDto = null;
         try {
             getMedication(medicationName);
-            medicationRepository.deleteMedicationByNsme(medicationName);
+            medicationRepository.deleteByMedicationName(medicationName);
             String message = "Medication deleted successfully.";
-            deleteMedicationDto = new DeleteMedicationDto(message);
+            deleteMedicationDto = new DeleteMedicationDto(message, true);
         }
         catch (MedicationException e) {
             if (e.getMessage().equals("Medication does not exist!")){
-                deleteMedicationDto = new DeleteMedicationDto(e.getMessage());
+                deleteMedicationDto = new DeleteMedicationDto(e.getMessage(), false);
                 return deleteMedicationDto;
             }
         }

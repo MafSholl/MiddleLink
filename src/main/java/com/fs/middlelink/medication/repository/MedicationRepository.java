@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface MedicationRepository extends CrudRepository<Medication, String> {
     Optional<Medication> findByMedicationName(String medicationName);
 
-    Medication deleteMedicationByNsme(String medicationName);
+    void deleteByMedicationName(String medicationName);
 }

@@ -9,8 +9,8 @@ import lombok.*;
 @Builder
 public class GetMedicationDto {
 
-    private Long medicationId;
+    private String medicationId;
     private String medicationName;
     private Double weight;
-    private byte[] medicationPicture;
+    private Byte[] medicationPicture;
 }

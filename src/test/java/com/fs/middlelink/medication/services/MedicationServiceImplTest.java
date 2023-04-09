@@ -1,6 +1,7 @@
 package com.fs.middlelink.medication.services;
 
 import com.fs.middlelink.medication.models.CreateMedicationDto;
+import com.fs.middlelink.medication.models.DeleteMedicationDto;
 import com.fs.middlelink.medication.models.Medication;
 import com.fs.middlelink.medication.repository.MedicationRepository;
 import com.fs.middlelink.utils.RedisProperties;
@@ -49,6 +50,22 @@ class MedicationServiceImplTest {
                 () -> assertEquals(response.getWeight(), repoMed.get().getWeight()),
                 () -> assertEquals(response.getMedicationPicture(), repoMed.get().getMedicationPicture()),
                 () -> assertNotNull(repoMed.get().getMedicationId())
+        );
+    }
+
+    @Test
+    void deleteMedicationTest() {
+        CreateMedicationDto request = CreateMedicationDto.builder()
+                .medicationName("Paracetamol")
+                .weight(13.4)
+                .build();
+
+        medicationService.createMedication(request);
+        DeleteMedicationDto deleteMedicationDto = medicationService.deleteMedication("Paracetamol");
+
+        assertAll("result",
+                () -> assertTrue(deleteMedicationDto.isDelete()),
+                () -> assertEquals("Medication deleted successfully.", deleteMedicationDto.getMessage())
         );
     }
 }
