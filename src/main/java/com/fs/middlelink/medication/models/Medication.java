@@ -23,5 +23,5 @@ public class Medication {
     private Double weight;
 //    @Lob
 //    @Basic(fetch = FetchType.LAZY)
-    private byte[] medicationPicture;
+    private Byte[] medicationPicture;
 }

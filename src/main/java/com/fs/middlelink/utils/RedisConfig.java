@@ -19,30 +19,30 @@ public class RedisConfig {
         return new JedisConnectionFactory();
     }
 
-//    @Bean
-//    LettuceConnectionFactory lettuceConnectionFactory(RedisProperties redisProperties) {
-//        return new LettuceConnectionFactory(
-//                redisProperties.getRedisHost(),
-//                redisProperties.getRedisPort()
-//                );
-//    }
-
     @Bean
-    public RedisTemplate<String, Object> redisTemplate() {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(jedisConnectionFactory());
-        return redisTemplate;
+    LettuceConnectionFactory lettuceConnectionFactory(RedisProperties redisProperties) {
+        return new LettuceConnectionFactory(
+                redisProperties.getRedisHost(),
+                redisProperties.getRedisPort()
+                );
     }
 
 //    @Bean
-//    public RedisTemplate<byte[], byte[]> redisTemplate(LettuceConnectionFactory lettuceConnectionFactroy) {
-//        RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
-//        redisTemplate.setConnectionFactory(lettuceConnectionFactroy);
-//        redisTemplate.setKeySerializer(new StringRedisSerializer());
-//        redisTemplate.setHashKeySerializer(new JdkSerializationRedisSerializer());
-//        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-//        redisTemplate.setEnableTransactionSupport(true);
-//        redisTemplate.afterPropertiesSet();
+//    public RedisTemplate<String, Object> redisTemplate() {
+//        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+//        redisTemplate.setConnectionFactory(jedisConnectionFactory());
 //        return redisTemplate;
 //    }
+
+    @Bean
+    public RedisTemplate<byte[], byte[]> redisTemplate(LettuceConnectionFactory lettuceConnectionFactroy) {
+        RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(lettuceConnectionFactroy);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setHashKeySerializer(new JdkSerializationRedisSerializer());
+        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
+        redisTemplate.setEnableTransactionSupport(true);
+        redisTemplate.afterPropertiesSet();
+        return redisTemplate;
+    }
 }

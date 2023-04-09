@@ -3,23 +3,27 @@ package com.fs.middlelink.medication.services;
 import com.fs.middlelink.medication.models.CreateMedicationDto;
 import com.fs.middlelink.medication.models.Medication;
 import com.fs.middlelink.medication.repository.MedicationRepository;
+import com.fs.middlelink.utils.RedisProperties;
+import com.fs.middlelink.utils.RedisTestConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import redis.embedded.RedisServer;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest(classes = RedisTestConfig.class)
 @ActiveProfiles("dev")
 class MedicationServiceImplTest {
     @Autowired
     private MedicationService medicationService;
     @Autowired
     private MedicationRepository medicationRepository;
+    private RedisServer redisServer;
 
     @Test
     void MedicationExistTest() {
