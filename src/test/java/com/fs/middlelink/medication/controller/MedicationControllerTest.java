@@ -27,7 +27,7 @@ class MedicationControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void whenCreatMedicationEndpointCalled_Returns200AndBody_Test() throws Exception {
+    void whenCreateMedicationEndpointCalled_Returns200AndBody_Test() throws Exception {
         Byte[] imageBtye = {4,7,3,5,78,1,9,0};
         CreateMedicationDto createMedicationRequest = CreateMedicationDto.builder()
                 .medicationName("Novagin")
@@ -54,5 +54,9 @@ class MedicationControllerTest {
                 ()-> verify(medicationService, times(1)).createMedication(any(CreateMedicationDto.class)),
                 ()-> assertThat(actualBody).isEqualToIgnoringWhitespace(objectMapper.writeValueAsString(expectedBody))
         );
+    }
+
+    void whenGetMedicationEndpointCalled_Returns200AndBody_Test() {
+
     }
 }
